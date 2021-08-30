@@ -3,16 +3,21 @@ const numbers=[1,3,5,2,6,8,9];
 
 const addNumber = (array) => {
   for (let i = 0; i<array.length ; i++) {
-
     array[i] += 1;
-  
-    //console.log(array[i]);
   }
-  //return array;
 }
 
-//addNumber(numbers);
+const showAbove5 = (array) => {
+  let newArray = [];
 
+  for (let i = 0; i<array.length; i++){
+    if (array[i] >= 5){
+      newArray = [...newArray, array[i]]
+    }
+  }
+}
+
+//For Each
 const forEachFn = (array, callback) => {
 
   callback(array);
@@ -20,6 +25,7 @@ const forEachFn = (array, callback) => {
   return array;
 };
 
+//MAP
 const mapFn = (array, callback) => {
 
   const newArray = [...array];
@@ -29,7 +35,15 @@ const mapFn = (array, callback) => {
   return newArray;
 };
 
-console.log(numbers);
-console.log(forEachFn(numbers,addNumber));
-console.log(mapFn(numbers,addNumber));
-console.log(numbers);
+//FILTER
+const filterFn = (array, callback) => {
+  callback(array);
+};
+
+//OUTPUT
+
+//console.log(numbers);
+//console.log(forEachFn(numbers,addNumber));
+//console.log(mapFn(numbers,addNumber));
+console.log(filterFn(numbers,showAbove5));
+//console.log(numbers);
