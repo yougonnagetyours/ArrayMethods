@@ -30,8 +30,6 @@ const mapFn = (array, callback) => {
 };
 
 console.log(numbers);
-
 console.log(forEachFn(numbers,addNumber));
 console.log(mapFn(numbers,addNumber));
-
 console.log(numbers);
