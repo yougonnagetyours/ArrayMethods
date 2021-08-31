@@ -6,5 +6,6 @@ function forEachFn(array, callback){
 
   for (const index in newArray) {
     const id = parseInt
+    callback(newArray[id], id, newArray)
   }
 }
