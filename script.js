@@ -7,18 +7,17 @@ function mapFn(array, callback) {
 
   for (const index in arrayCopy) {
     const id = parseInt(index);
-    const value = callback(arrayCopy[id], id, arrayCopy);
-    result.push(value);
+    if (callback(arrayCopy[id], id, arrayCopy)){
+      result.push(arrayCopy[id]);
+    }
   }
   return result;
 }
 
 const names = ["andrzej","jan","michał"];
 
-const newNames = mapFn(names, (name) =>{
-  name += "ek";
-  return name;
-})
+const newNames = mapFn(names, (name) => (name.length > 4));
+
 
 console.log(newNames);
 
