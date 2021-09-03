@@ -1,24 +1,31 @@
-function mapFn(array, callback) {
-  if (!Array.isArray(array)) throw new Error("First argument must be an array");
-  if (typeof callback !== "function") throw new Error("Second argument must be a function");
+const filterFn = (array, callback) => {
+  if (!Array.isArray(array)) throw new Error('pierwszy argument musi byc tablicą !');
+  if (typeof callback != 'function') throw new Error('drugi argument musi byc funkcją');
 
+  const newArray = [...array];
   const result = [];
-  const arrayCopy = [...array];
 
-  for (const index in arrayCopy) {
+  for (const index in newArray){
     const id = parseInt(index);
-    if (callback(arrayCopy[id], id, arrayCopy)){
-      result.push(arrayCopy[id]);
-    }
+    if (callback(newArray[id], id)){
+      result.push(newArray[id]);
+      }
+    
   }
+
   return result;
-}
-
-const names = ["andrzej","jan","michał"];
-
-const newNames = mapFn(names, (name) => (name.length > 4));
+};
 
 
-console.log(newNames);
 
-//ZRÓB TO SAMO DLA METODY FILTER()
+
+
+
+//Wywoływanie
+cars = ['audi','nissan','bmw','volvo','toyota'];
+
+const carsFilter = filterFn(cars, (car) => (
+  //if (car === "nissan") return true;
+  car.length > 3))
+
+console.log(carsFilter);
